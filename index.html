@@ -1,958 +1,2224 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mi Invitación</title>
+    <meta charset="UTF-8">
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>Mis XV Maia</title>
 
-:root {
-    --color-principal: #8b5e83;
-    --color-secundario: #d8a7c4;
-    --color-fondo: #fff8fb;
-    --color-texto: #4b3b45;
-    --color-blanco: #ffffff;
-}
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <!-- ==================================================
+         FUENTES
+    ================================================== -->
 
-html {
-    scroll-behavior: smooth;
-}
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--color-fondo);
-    color: var(--color-texto);
-}
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-/* =========================
-   PANTALLA DE BIENVENIDA
-========================= */
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap"
+          rel="stylesheet">
 
-.pantalla-inicial {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    <!-- ==================================================
+         ESTILOS
+    ================================================== -->
 
-    background:
-        linear-gradient(
-            rgba(80, 40, 70, .55),
-            rgba(80, 40, 70, .55)
-        ),
-        url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80");
+    <style>
 
-    background-size: cover;
-    background-position: center;
-}
+        /* ==================================================
+           COLORES
+        ================================================== */
 
-.inicio-contenido {
-    width: 90%;
-    max-width: 500px;
+        :root {
 
-    padding: 45px 25px;
-
-    text-align: center;
+            --negro: #09070b;
 
-    background: rgba(255,255,255,.94);
+            --negro-violeta: #140c1b;
 
-    border-radius: 25px;
+            --violeta-oscuro: #24122e;
 
-    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            --violeta: #9b5fba;
 
-    animation: aparecer 1.2s ease;
-}
+            --violeta-claro: #c995dc;
 
-.inicio-contenido h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    color: var(--color-principal);
-    margin-bottom: 15px;
-}
+            --lavanda: #ead8f1;
 
-.inicio-contenido p {
-    margin-bottom: 30px;
-    font-size: 16px;
-}
+            --lavanda-2: #d8b9e3;
 
-.btn-abrir {
-    border: none;
-    padding: 15px 35px;
+            --blanco: #ffffff;
 
-    background: var(--color-principal);
-    color: white;
+            --texto-oscuro: #171017;
+        }
 
-    border-radius: 50px;
 
-    font-size: 16px;
-    font-weight: 600;
+        /* ==================================================
+           GENERAL
+        ================================================== */
 
-    cursor: pointer;
+        * {
 
-    transition: .3s;
-}
+            margin: 0;
+            padding: 0;
 
-.btn-abrir:hover {
-    transform: scale(1.05);
-    background: #70496a;
-}
+            box-sizing: border-box;
 
-/* =========================
-   PORTADA
-========================= */
+        }
 
-.portada {
-    min-height: 100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+        html {
 
-    text-align: center;
+            scroll-behavior: smooth;
 
-    padding: 30px;
+        }
 
-    background:
-        linear-gradient(
-            rgba(70,40,60,.4),
-            rgba(70,40,60,.4)
-        ),
-        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1500&q=80");
 
-    background-size: cover;
-    background-position: center;
-}
+        body {
 
-.portada-contenido {
-    color: white;
-    animation: aparecer 1.5s ease;
-}
+            margin: 0;
 
-.portada-contenido .pequeno {
-    font-size: 18px;
-    letter-spacing: 4px;
-    margin-bottom: 15px;
-}
+            font-family: 'Montserrat', sans-serif;
 
-.portada-contenido h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(50px, 10vw, 90px);
-    margin-bottom: 15px;
-}
+            background: var(--negro);
 
-.portada-contenido .fecha {
-    font-size: 22px;
-    letter-spacing: 2px;
-}
+            color: white;
 
-/* =========================
-   SECCIONES
-========================= */
+        }
 
-.seccion {
-    max-width: 1000px;
-    margin: auto;
 
-    padding: 80px 25px;
+        img {
 
-    text-align: center;
-}
+            max-width: 100%;
 
-.titulo {
-    font-family: 'Playfair Display', serif;
-    color: var(--color-principal);
+        }
 
-    font-size: 40px;
 
-    margin-bottom: 20px;
-}
+        /* ==================================================
+           PANTALLA INICIAL
+        ================================================== */
 
-.descripcion {
-    max-width: 650px;
-    margin: 0 auto 40px;
+        #bienvenida {
 
-    line-height: 1.8;
-}
+            min-height: 100vh;
 
-/* =========================
-   FOTO
-========================= */
+            display: flex;
 
-.foto-principal {
-    width: 100%;
-    max-width: 550px;
+            justify-content: center;
 
-    display: block;
+            align-items: center;
 
-    margin: 30px auto;
+            text-align: center;
 
-    border-radius: 20px;
+            background: white;
 
-    box-shadow: 0 15px 40px rgba(0,0,0,.18);
-}
+            color: var(--texto-oscuro);
 
-/* =========================
-   FECHA / LUGAR
-========================= */
+            padding: 30px;
 
-.informacion {
-    display: grid;
+        }
 
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
 
-    gap: 25px;
+        .bienvenida-contenido {
 
-    margin-top: 40px;
-}
+            width: 100%;
 
-.tarjeta-info {
-    background: white;
+            max-width: 600px;
 
-    padding: 30px 20px;
+            animation: aparecer 1.5s ease;
 
-    border-radius: 20px;
+        }
 
-    box-shadow: 0 8px 30px rgba(0,0,0,.08);
 
-    transition: .3s;
-}
+        .bienvenida-contenido h1 {
 
-.tarjeta-info:hover {
-    transform: translateY(-7px);
-}
+            font-size: 42px;
 
-.tarjeta-info .icono {
-    font-size: 35px;
-    margin-bottom: 15px;
-}
+            font-weight: 400;
 
-.tarjeta-info h3 {
-    color: var(--color-principal);
-    margin-bottom: 10px;
-}
+            letter-spacing: 5px;
 
-/* =========================
-   CUENTA REGRESIVA
-========================= */
+            margin-bottom: 30px;
 
-.contador {
-    display: grid;
+        }
 
-    grid-template-columns: repeat(4,1fr);
 
-    gap: 15px;
+        .bienvenida-contenido p {
 
-    max-width: 650px;
+            font-size: 13px;
 
-    margin: 40px auto;
-}
+            line-height: 1.9;
 
-.numero {
-    background: var(--color-principal);
-    color: white;
+            letter-spacing: 2px;
 
-    padding: 20px 10px;
+            color: #555;
 
-    border-radius: 15px;
-}
+            margin-bottom: 40px;
 
-.numero strong {
-    display: block;
+        }
 
-    font-size: 35px;
-}
 
-.numero span {
-    font-size: 12px;
-    text-transform: uppercase;
-}
+        /* ==================================================
+           BOTÓN INGRESAR
+        ================================================== */
 
-/* =========================
-   BOTONES
-========================= */
+        .btn-ingresar {
 
-.botones {
-    display: flex;
+            border: none;
 
-    justify-content: center;
+            background: var(--violeta);
 
-    flex-wrap: wrap;
+            color: white;
 
-    gap: 15px;
+            padding: 15px 45px;
 
-    margin-top: 30px;
-}
+            border-radius: 40px;
 
-.btn {
-    display: inline-block;
+            font-size: 12px;
 
-    padding: 14px 25px;
+            letter-spacing: 3px;
 
-    border-radius: 50px;
+            cursor: pointer;
 
-    text-decoration: none;
+            transition: .3s;
 
-    color: white;
+            box-shadow:
+                0 8px 25px rgba(155,95,186,.35);
 
-    background: var(--color-principal);
+        }
 
-    transition: .3s;
-}
 
-.btn:hover {
-    transform: translateY(-3px);
-    opacity: .9;
-}
+        .btn-ingresar:hover {
 
-.btn-whatsapp {
-    background: #25D366;
-}
+            background: var(--violeta-claro);
 
-.btn-maps {
-    background: #4285F4;
-}
+            transform: translateY(-3px);
 
-/* =========================
-   GALERÍA
-========================= */
+        }
 
-.galeria {
-    display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+        /* ==================================================
+           INVITACIÓN
+        ================================================== */
 
-    gap: 15px;
+        #invitacion {
+
+            display: none;
+
+        }
+
+
+        /* ==================================================
+           PORTADA
+        ================================================== */
+
+        .portada {
+
+            position: relative;
+
+            height: 100vh;
+
+            min-height: 650px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: center;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(20,10,25,.05),
+                    rgba(20,10,25,.55)
+                ),
+
+                url("https://latarjetadigital.com.ar/wp-content/uploads/2025/09/2ARIADNA-1-768x1024.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+        }
+
+
+        .portada::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            height: 50%;
+
+            background:
+
+                linear-gradient(
+                    transparent,
+                    rgba(10,5,12,.95)
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .portada-contenido {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            padding: 50px 20px;
+
+            animation: subir 1.5s ease;
+
+        }
+
+
+        .nombre {
+
+            font-family: 'Parisienne', cursive;
+
+            font-size: 80px;
+
+            line-height: 1;
+
+            margin-bottom: 10px;
+
+            text-shadow:
+                0 3px 15px rgba(0,0,0,.5);
+
+        }
+
+
+        .mis-xv {
+
+            font-size: 17px;
+
+            letter-spacing: 7px;
+
+            font-weight: 400;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .linea {
+
+            width: 65px;
+
+            height: 1px;
+
+            background: white;
+
+            margin: 15px auto;
+
+        }
+
+
+        .fecha-portada {
+
+            font-size: 13px;
+
+            letter-spacing: 4px;
+
+        }
+
+
+        /* ==================================================
+           CUENTA REGRESIVA
+        ================================================== */
+
+        .countdown {
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #09070b,
+                    #24132d,
+                    #09070b
+                );
+
+        }
+
+
+        .countdown-titulo {
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            color: var(--violeta-claro);
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .contadores {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .contador {
+
+            width: 75px;
+
+            padding: 15px 5px;
+
+            background: rgba(255,255,255,.04);
+
+            border: 1px solid rgba(201,149,220,.25);
+
+            border-radius: 5px;
+
+        }
+
+
+        .contador span {
+
+            display: block;
+
+            font-size: 25px;
+
+            font-weight: 300;
+
+        }
+
+
+        .contador small {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            color: var(--violeta-claro);
+
+        }
+
+
+        /* ==================================================
+           FRASE
+        ================================================== */
+
+        .frase {
+
+            padding: 90px 25px;
+
+            text-align: center;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #170d1d,
+                    #32183d
+                );
+
+        }
+
+
+        .frase p {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            font-family: 'Parisienne', cursive;
+
+            font-size: 30px;
+
+            line-height: 1.3;
+
+        }
+
+
+        .frase small {
+
+            display: block;
+
+            max-width: 500px;
+
+            margin: 25px auto 0;
+
+            font-size: 10px;
+
+            line-height: 1.8;
+
+            letter-spacing: 3px;
+
+            color: var(--violeta-claro);
+
+        }
+
+
+        /* ==================================================
+           SECCIÓN ¿CUÁNDO?
+           FONDO OSCURO
+        ================================================== */
+
+        .cuando {
+
+            min-height: 500px;
+
+            padding: 80px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #09070b 0%,
+                    #24132d 50%,
+                    #09070b 100%
+                );
+
+        }
+
+
+        .gif-cuando {
+
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .cuando h2 {
+
+            margin: 0 0 35px;
+
+            font-size: 25px;
+
+            font-weight: 400;
+
+            letter-spacing: 6px;
+
+        }
+
+
+        .fecha-cuando {
+
+            font-size: 18px;
+
+            font-weight: 300;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .hora-cuando {
+
+            font-size: 15px;
+
+            letter-spacing: 4px;
+
+            color: var(--violeta-claro);
+
+        }
+
+
+        /* ==================================================
+           SECCIÓN ¿DÓNDE?
+           FONDO CLARO
+        ================================================== */
+
+        .donde {
+
+            min-height: 500px;
+
+            padding: 80px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: var(--texto-oscuro);
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #ead8f1 0%,
+                    #d8b9e3 50%,
+                    #ead8f1 100%
+                );
+
+        }
+
+
+        .gif-donde {
+
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .donde h2 {
+
+            margin: 0 0 35px;
+
+            font-size: 25px;
+
+            font-weight: 400;
+
+            letter-spacing: 6px;
+
+        }
+
+
+        .lugar-donde {
+
+            font-size: 18px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .direccion-donde {
+
+            font-size: 14px;
+
+            letter-spacing: 2px;
+
+            color: #4b2859;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* ==================================================
+           BOTÓN MAPA
+        ================================================== */
+
+        .btn-mapa {
+
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            border: 1px solid #4b2859;
+
+            border-radius: 30px;
+
+            color: #24132d;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            transition: .3s;
+
+        }
+
+
+        .btn-mapa:hover {
+
+            background: #4b2859;
+
+            color: white;
+
+        }
+
+
+        /* ==================================================
+           DRESS CODE
+           FONDO CLARO
+        ================================================== */
+
+        .dresscode {
+
+            min-height: 500px;
+
+            padding: 80px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: var(--texto-oscuro);
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #ead8f1,
+                    #d8b9e3,
+                    #ead8f1
+                );
+
+        }
+
+
+        .gif-dresscode {
+
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .dresscode h2 {
+
+            font-size: 24px;
+
+            font-weight: 400;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .dress-principal {
+
+            font-size: 19px;
+
+            letter-spacing: 4px;
+
+            color: #32153f;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .dress-texto {
+
+            max-width: 500px;
+
+            font-size: 13px;
+
+            line-height: 2;
+
+            letter-spacing: 1px;
+
+            color: #4b2859;
+
+        }
+
+
+        /* ==================================================
+           REGALOS
+           FONDO OSCURO
+        ================================================== */
+
+        .regalos {
+
+            min-height: 500px;
+
+            padding: 80px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #09070b,
+                    #24132d,
+                    #09070b
+                );
+
+        }
+
+
+        .gif-regalos {
+
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .regalos h2 {
+
+            font-size: 24px;
+
+            font-weight: 400;
+
+            letter-spacing: 6px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .regalos-texto {
+
+            max-width: 550px;
+
+            font-size: 14px;
+
+            line-height: 2;
+
+            letter-spacing: 1px;
+
+            color: #eeeeee;
+
+        }
+
+
+        /* ==================================================
+           CONFIRMAR
+           FONDO OSCURO
+        ================================================== */
+
+        .confirmar {
+
+            min-height: 550px;
+
+            padding: 80px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #140c1b,
+                    #32183d,
+                    #140c1b
+                );
+
+        }
+
+
+        .gif-confirmar {
+
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: contain;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .confirmar h2 {
+
+            font-size: 24px;
+
+            font-weight: 400;
+
+            letter-spacing: 6px;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .confirmar-texto {
+
+            max-width: 500px;
+
+            font-size: 14px;
+
+            line-height: 2;
+
+            color: #eeeeee;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* ==================================================
+           BOTÓN WHATSAPP
+        ================================================== */
+
+        .btn-confirmar {
+
+            display: inline-block;
+
+            padding: 15px 28px;
+
+            background: var(--violeta);
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            transition: .3s;
+
+        }
+
+
+        .btn-confirmar:hover {
+
+            background: var(--violeta-claro);
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* ==================================================
+           FINAL
+        ================================================== */
+
+        .final {
+
+            padding: 90px 20px;
+
+            text-align: center;
+
+            background: #070509;
+
+        }
+
+
+        .final h2 {
+
+            font-family: 'Parisienne', cursive;
+
+            font-size: 60px;
+
+            font-weight: 400;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .final p {
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            line-height: 2;
+
+            color: #aaa;
+
+        }
+
+
+        .corazon {
+
+            margin-top: 30px;
+
+            font-size: 25px;
+
+            color: var(--violeta-claro);
+
+        }
+
+
+        /* ==================================================
+           BOTÓN MÚSICA
+        ================================================== */
+
+        .boton-musica {
+
+            position: fixed;
+
+            right: 20px;
+
+            bottom: 20px;
+
+            width: 55px;
+
+            height: 55px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,.4);
+
+            background: var(--violeta);
+
+            color: white;
+
+            cursor: pointer;
+
+            z-index: 9999;
+
+            font-size: 19px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,.4);
+
+            transition: .3s;
+
+        }
+
+
+        .boton-musica:hover {
+
+            background: var(--violeta-claro);
+
+            transform: scale(1.08);
+
+        }
+
+
+        /* ==================================================
+           ANIMACIONES
+        ================================================== */
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes subir {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(40px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        /* ==================================================
+           CELULAR
+        ================================================== */
+
+        @media (max-width: 600px) {
+
+            .bienvenida-contenido h1 {
+
+                font-size: 30px;
+
+                letter-spacing: 3px;
+
+            }
+
+
+            .bienvenida-contenido p {
+
+                font-size: 11px;
+
+            }
+
+
+            .portada {
+
+                min-height: 650px;
+
+                height: 90vh;
+
+            }
+
+
+            .nombre {
+
+                font-size: 65px;
+
+            }
+
+
+            .mis-xv {
+
+                font-size: 14px;
+
+                letter-spacing: 5px;
+
+            }
+
+
+            .fecha-portada {
+
+                font-size: 11px;
+
+            }
+
+
+            .frase p {
+
+                font-size: 34px;
+
+            }
+
+
+            .cuando h2,
+            .donde h2,
+            .dresscode h2,
+            .regalos h2,
+            .confirmar h2 {
+
+                font-size: 21px;
+
+                letter-spacing: 4px;
+
+            }
+
+
+            .fecha-cuando {
+
+                font-size: 16px;
+
+                letter-spacing: 2px;
+
+            }
+
+
+            .hora-cuando {
+
+                font-size: 14px;
+
+            }
+
+
+            .lugar-donde {
+
+                font-size: 16px;
+
+            }
+
+
+            .final h2 {
+
+                font-size: 48px;
+
+            }
+
+        }
+
+        /* =========================================
+   BOTÓN HACER REGALO
+========================================= */
+
+.btn-regalo {
 
     margin-top: 35px;
-}
 
-.galeria img {
-    width: 100%;
-    height: 280px;
+    padding: 15px 30px;
 
-    object-fit: cover;
+    border: 1px solid #c995dc;
 
-    border-radius: 15px;
+    border-radius: 30px;
 
-    cursor: pointer;
-
-    transition: .4s;
-}
-
-.galeria img:hover {
-    transform: scale(1.03);
-}
-
-/* =========================
-   MÚSICA
-========================= */
-
-.boton-musica {
-    position: fixed;
-
-    right: 20px;
-    bottom: 20px;
-
-    width: 55px;
-    height: 55px;
-
-    border-radius: 50%;
-
-    border: none;
-
-    background: var(--color-principal);
+    background: transparent;
 
     color: white;
 
-    font-size: 22px;
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
 
     cursor: pointer;
 
-    z-index: 5000;
+    transition: .3s;
 
-    box-shadow: 0 5px 20px rgba(0,0,0,.2);
 }
 
-/* =========================
-   CORAZONES
-========================= */
 
-.corazon {
+.btn-regalo:hover {
+
+    background: #9b5fba;
+
+    transform: translateY(-3px);
+
+}
+
+
+
+/* =========================================
+   POPUP
+========================================= */
+
+.popup-regalo {
+
     position: fixed;
 
-    bottom: -30px;
+    inset: 0;
+
+    z-index: 10000;
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(5,3,7,.85);
+
+    backdrop-filter: blur(5px);
+
+}
+
+
+.popup-regalo.activo {
+
+    display: flex;
+
+    animation: aparecerPopup .3s ease;
+
+}
+
+
+
+/* =========================================
+   CONTENIDO DEL POPUP
+========================================= */
+
+.popup-contenido {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 420px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #1a0d21,
+            #351744
+        );
+
+    border: 1px solid rgba(201,149,220,.4);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.6);
+
+}
+
+
+
+/* =========================================
+   GIF DEL POPUP
+========================================= */
+
+.gif-popup {
+
+    width: 60px;
+
+    height: 60px;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
+
+}
+
+
+.popup-contenido h3 {
 
     font-size: 20px;
 
-    animation: subir 6s linear forwards;
+    font-weight: 400;
 
-    pointer-events: none;
+    letter-spacing: 4px;
 
-    z-index: 4000;
-}
-
-@keyframes subir {
-
-    0% {
-        transform: translateY(0) rotate(0);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
+    margin-bottom: 30px;
 
 }
 
-/* =========================
-   ANIMACIONES
-========================= */
 
-@keyframes aparecer {
 
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+/* =========================================
+   CERRAR
+========================================= */
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.cerrar-popup {
 
-}
+    position: absolute;
 
-/* =========================
-   PIE
-========================= */
+    top: 12px;
 
-footer {
-    background: var(--color-principal);
+    right: 15px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
 
     color: white;
 
-    text-align: center;
+    font-size: 30px;
 
-    padding: 35px 20px;
+    font-weight: 200;
 
-    line-height: 1.7;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:600px) {
-
-    .contador {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .numero strong {
-        font-size: 28px;
-    }
-
-    .titulo {
-        font-size: 32px;
-    }
-
-    .portada-contenido h1 {
-        font-size: 55px;
-    }
+    cursor: pointer;
 
 }
 
-</style>
+
+
+/* =========================================
+   DATOS BANCARIOS
+========================================= */
+
+.dato-bancario {
+
+    margin-bottom: 20px;
+
+    padding: 18px;
+
+    background: rgba(255,255,255,.06);
+
+    border: 1px solid rgba(201,149,220,.2);
+
+    border-radius: 8px;
+
+}
+
+
+.dato-bancario span {
+
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #c995dc;
+
+    margin-bottom: 8px;
+
+}
+
+
+.dato-bancario strong {
+
+    display: block;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    word-break: break-all;
+
+    margin-bottom: 12px;
+
+}
+
+
+.dato-bancario button {
+
+    border: none;
+
+    background: #9b5fba;
+
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.dato-bancario button:hover {
+
+    background: #c995dc;
+
+}
+
+
+
+/* =========================================
+   MENSAJE COPIADO
+========================================= */
+
+.mensaje-copiado {
+
+    min-height: 18px;
+
+    margin-top: 10px;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color: #c995dc;
+
+}
+
+
+
+/* =========================================
+   ANIMACIÓN
+========================================= */
+
+@keyframes aparecerPopup {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+    </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
-     PANTALLA INICIAL
-========================= -->
 
-<div class="pantalla-inicial" id="pantallaInicial">
+<!-- =====================================================
+     PANTALLA DE BIENVENIDA
+===================================================== -->
 
-    <div class="inicio-contenido">
+<section id="bienvenida">
 
-        <h1>Una invitación especial</h1>
+    <div class="bienvenida-contenido">
+
+        <h1>
+            MIS XV MAIA
+        </h1>
+
 
         <p>
-            Tenemos el agrado de invitarte a compartir
-            este momento tan especial con nosotros.
+            QUIERO QUE SEAS PARTE DE ESTE MOMENTO
+            TAN IMPORTANTE PARA MÍ
         </p>
 
-        <button class="btn-abrir" onclick="abrirInvitacion()">
-            💌 Abrir invitación
+
+        <button
+            class="btn-ingresar"
+            onclick="entrar()">
+
+            INGRESAR
+
         </button>
 
     </div>
 
+</section>
+
+
+
+<!-- =====================================================
+     INVITACIÓN
+===================================================== -->
+
+<div id="invitacion">
+
+
+    <!-- =================================================
+         PORTADA
+    ================================================== -->
+
+    <section class="portada">
+
+        <div class="portada-contenido">
+
+            <div class="nombre">
+                Maia
+            </div>
+
+
+            <div class="mis-xv">
+                MIS XV AÑOS
+            </div>
+
+
+            <div class="linea"></div>
+
+
+            <div class="fecha-portada">
+                11 DE OCTUBRE DE 2026
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CUENTA REGRESIVA
+    ================================================== -->
+
+    <section class="countdown">
+
+        <div class="countdown-titulo">
+            FALTA MUY POCO PARA ESTE GRAN MOMENTO
+        </div>
+
+
+        <div class="contadores">
+
+            <div class="contador">
+
+                <span id="dias">
+                    00
+                </span>
+
+                <small>
+                    DÍAS
+                </small>
+
+            </div>
+
+
+            <div class="contador">
+
+                <span id="horas">
+                    00
+                </span>
+
+                <small>
+                    HORAS
+                </small>
+
+            </div>
+
+
+            <div class="contador">
+
+                <span id="minutos">
+                    00
+                </span>
+
+                <small>
+                    MINUTOS
+                </small>
+
+            </div>
+
+
+            <div class="contador">
+
+                <span id="segundos">
+                    00
+                </span>
+
+                <small>
+                    SEGUNDOS
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FRASE
+    ================================================== -->
+
+    <section class="frase">
+
+        <p>
+           Con la alegría y la bendición de ver cumplido un sueño, mis padres,
+            Mariana Martinez y Martín Castro desean celebrar mis 15 años.
+        </p>
+
+
+        <small>
+            TE ESPERO PARA COMPARTIR JUNTOS
+            ESTA NOCHE TAN ESPECIAL
+        </small>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ¿CUÁNDO?
+    ================================================== -->
+
+    <section
+        class="cuando"
+        id="cuando">
+
+
+        <img
+            class="gif-cuando"
+
+            src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/ffffff-blanco-icono-3.gif"
+
+            alt="Calendario">
+
+
+        <h2>
+            CUÁNDO
+        </h2>
+
+
+        <div class="fecha-cuando">
+            11 DE OCTUBRE DE 2026
+        </div>
+
+
+        <div class="hora-cuando">
+            21:30 HS
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ¿DÓNDE?
+    ================================================== -->
+
+    <section
+        class="donde"
+        id="donde">
+
+
+        <img
+            class="gif-donde"
+
+            src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/000000-negro-icono-25.gif"
+
+            alt="Ubicación">
+
+
+        <h2>
+            DÓNDE
+        </h2>
+
+
+        <div class="lugar-donde">
+            BOLICHE IBIZA 
+        </div>
+
+
+        <div class="direccion-donde">
+            SAN SALVADOR DE JUJUY
+        </div>
+
+
+        <a
+            class="btn-mapa"
+            
+
+            href="https://maps.app.goo.gl/pL7bqsibz8JxhRoV9"
+
+            target="_blank">
+
+            VER UBICACIÓN
+
+        </a>
+
+    </section>
+
+ <!-- =================================================
+         REGALOS
+    ================================================== -->
+
+    <!-- =================================================
+     REGALOS
+================================================= -->
+
+<section
+    class="regalos"
+    id="regalos">
+
+    <img
+        class="gif-regalos"
+        src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/ffffff-blanco-icono-12.gif"
+        alt="Regalos">
+
+    <h2>
+        REGALOS
+    </h2>
+
+    <div class="regalos-texto">
+
+        Lo más importante para mí
+        es compartir esta noche con vos.
+
+        <br><br>
+
+        Si querés hacerme un regalo,
+        podés hacerlo desde aquí.
+
+    </div>
+
+    <button
+        class="btn-regalo"
+        onclick="abrirRegalo()">
+
+         HACER REGALO
+
+    </button>
+
+</section>
+
+
+    <!-- =================================================
+         DRESS CODE
+    ================================================== -->
+
+    <section
+        class="dresscode"
+        id="dresscode">
+
+
+        <img
+            class="gif-dresscode"
+
+            src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/000000-negro-icono-20.gif"
+
+            alt="Dress Code">
+
+
+        <h2>
+            DRESS CODE
+        </h2>
+
+
+        <div class="dress-principal">
+            ELEGANTE
+        </div>
+
+
+        <div class="dress-texto">
+
+            Elegí tu mejor look y vení
+            a disfrutar de una noche inolvidable.
+
+        </div>
+
+    </section>
+
+
+
+   
+
+
+    <!-- =================================================
+         CONFIRMAR
+    ================================================== -->
+
+    <section
+        class="confirmar"
+        id="confirmar">
+
+
+        <img
+            class="gif-confirmar"
+
+            src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/ffffff-blanco-icono-8.gif"
+
+            alt="Confirmar asistencia">
+
+
+        <h2>
+            CONFIRMAR
+        </h2>
+
+
+        <div class="confirmar-texto">
+
+            Tu presencia es muy importante para mí.
+
+            <br>
+
+            Por favor confirmá tu asistencia
+            antes del evento.
+
+        </div>
+
+
+        <a
+            class="btn-confirmar"
+
+            href="https://wa.me/5493884881996?text=Hola%20Maia!%20Quiero%20confirmar%20mi%20asistencia%20a%20tus%20XV."
+
+            target="_blank">
+
+            CONFIRMAR ASISTENCIA
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FINAL
+    ================================================== -->
+
+    <section class="final">
+
+        <h2>
+            ¡Te espero!
+        </h2>
+
+
+        <p>
+            GRACIAS POR SER PARTE
+            DE ESTE MOMENTO TAN ESPECIAL
+        </p>
+
+
+        <div class="corazon">
+            ♡
+        </div>
+
+    </section>
+
+
 </div>
 
 
-<!-- =========================
-     MÚSICA
-========================= -->
 
-<audio id="musica" loop>
-
-    <!-- CAMBIAR POR TU ARCHIVO DE MÚSICA -->
-
-    <source src="musica.mp3" type="audio/mpeg">
-
-</audio>
+<!-- =====================================================
+     BOTÓN DE MÚSICA
+===================================================== -->
 
 <button
     class="boton-musica"
     id="botonMusica"
-    onclick="controlarMusica()">
+    onclick="musica()">
 
-    🎵
+    ♪
 
 </button>
 
 
-<!-- =========================
-     PORTADA
-========================= -->
+<!-- =====================================================
+     MÚSICA
+===================================================== -->
 
-<section class="portada">
+<audio
+    id="audio"
+    loop>
 
-    <div class="portada-contenido">
+    <source
+        src="https://drive.google.com/file/d/1blkb2ijl0u4d7lFneJ-4_6rhLjJqGqw3/view?usp=sharing"
+        type="audio/mpeg">
 
-        <div class="pequeno">
-            TE INVITAMOS A CELEBRAR
-        </div>
+</audio>
 
-        <h1>
-            María & Juan
-        </h1>
 
-        <div class="fecha">
-            20 · DICIEMBRE · 2026
-        </div>
 
-    </div>
 
-</section>
-
-
-<!-- =========================
-     PRESENTACIÓN
-========================= -->
-
-<section class="seccion">
-
-    <h2 class="titulo">
-        Un día muy especial
-    </h2>
-
-    <p class="descripcion">
-
-        Queremos compartir con vos un momento
-        muy importante de nuestras vidas.
-
-        Será una celebración llena de alegría,
-        amor y momentos inolvidables.
-
-    </p>
-
-    <img
-        class="foto-principal"
-        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80"
-        alt="Foto">
-
-</section>
-
-
-<!-- =========================
-     INFORMACIÓN
-========================= -->
-
-<section class="seccion">
-
-    <h2 class="titulo">
-        ¿Cuándo y dónde?
-    </h2>
-
-    <div class="informacion">
-
-        <div class="tarjeta-info">
-
-            <div class="icono">📅</div>
-
-            <h3>Fecha</h3>
-
-            <p>
-                Domingo<br>
-                20 de diciembre de 2026
-            </p>
-
-        </div>
-
-
-        <div class="tarjeta-info">
-
-            <div class="icono">⏰</div>
-
-            <h3>Horario</h3>
-
-            <p>
-                21:00 horas
-            </p>
-
-        </div>
-
-
-        <div class="tarjeta-info">
-
-            <div class="icono">📍</div>
-
-            <h3>Lugar</h3>
-
-            <p>
-                Salón de Eventos<br>
-                Jujuy, Argentina
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="botones">
-
-        <a
-            class="btn btn-maps"
-            href="https://www.google.com/maps"
-            target="_blank">
-
-            📍 Ver ubicación
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CUENTA REGRESIVA
-========================= -->
-
-<section class="seccion">
-
-    <h2 class="titulo">
-        Falta muy poco
-    </h2>
-
-    <div class="contador">
-
-        <div class="numero">
-            <strong id="dias">0</strong>
-            <span>Días</span>
-        </div>
-
-        <div class="numero">
-            <strong id="horas">0</strong>
-            <span>Horas</span>
-        </div>
-
-        <div class="numero">
-            <strong id="minutos">0</strong>
-            <span>Minutos</span>
-        </div>
-
-        <div class="numero">
-            <strong id="segundos">0</strong>
-            <span>Segundos</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     GALERÍA
-========================= -->
-
-<section class="seccion">
-
-    <h2 class="titulo">
-        Nuestros momentos
-    </h2>
-
-    <p class="descripcion">
-        Algunas imágenes que queremos compartir con vos.
-    </p>
-
-
-    <div class="galeria">
-
-        <img
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80">
-
-        <img
-            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80">
-
-        <img
-            src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=600&q=80">
-
-        <img
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80">
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONFIRMACIÓN
-========================= -->
-
-<section class="seccion">
-
-    <h2 class="titulo">
-        ¿Nos acompañás?
-    </h2>
-
-    <p class="descripcion">
-
-        Nos encantaría contar con tu presencia.
-
-        Confirmá tu asistencia por WhatsApp.
-
-    </p>
-
-
-    <div class="botones">
-
-        <a
-            class="btn btn-whatsapp"
-            href="https://wa.me/5493880000000?text=Hola!%20Quiero%20confirmar%20mi%20asistencia."
-            target="_blank">
-
-            💬 Confirmar asistencia
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <p>
-        Gracias por ser parte de este momento tan especial ❤️
-    </p>
-
-    <p>
-        María & Juan
-    </p>
-
-</footer>
-
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-/* =========================
-   ABRIR INVITACIÓN
-========================= */
 
-function abrirInvitacion() {
+/* =====================================================
+   ENTRAR
+===================================================== */
 
-    document.getElementById("pantallaInicial").style.display = "none";
+function entrar() {
 
-    controlarMusica();
+    document.getElementById("bienvenida").style.display = "none";
+
+    document.getElementById("invitacion").style.display = "block";
+
+    window.scrollTo(0, 0);
 
 }
 
 
-/* =========================
+
+/* =====================================================
+   CUENTA REGRESIVA
+===================================================== */
+
+const fechaEvento =
+    new Date("2027-03-20T21:30:00").getTime();
+
+
+const cuentaRegresiva =
+    setInterval(function () {
+
+
+        const ahora =
+            new Date().getTime();
+
+
+        const diferencia =
+            fechaEvento - ahora;
+
+
+        const dias =
+            Math.floor(
+                diferencia /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        const horas =
+            Math.floor(
+                (diferencia %
+                (1000 * 60 * 60 * 24))
+                /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutos =
+            Math.floor(
+                (diferencia %
+                (1000 * 60 * 60))
+                /
+                (1000 * 60)
+            );
+
+
+        const segundos =
+            Math.floor(
+                (diferencia %
+                (1000 * 60))
+                /
+                1000
+            );
+
+
+        document.getElementById("dias").innerHTML =
+            dias < 0 ? "00" : dias;
+
+
+        document.getElementById("horas").innerHTML =
+            horas < 0 ? "00" : horas;
+
+
+        document.getElementById("minutos").innerHTML =
+            minutos < 0 ? "00" : minutos;
+
+
+        document.getElementById("segundos").innerHTML =
+            segundos < 0 ? "00" : segundos;
+
+
+        if (diferencia < 0) {
+
+            clearInterval(cuentaRegresiva);
+
+        }
+
+
+    }, 1000);
+
+
+
+/* =====================================================
    MÚSICA
-========================= */
+===================================================== */
 
 let reproduciendo = false;
 
-function controlarMusica() {
 
-    const musica = document.getElementById("musica");
+function musica() {
 
-    const boton = document.getElementById("botonMusica");
 
-    if (!reproduciendo) {
+    const audio =
+        document.getElementById("audio");
 
-        musica.play();
 
-        reproduciendo = true;
+    const boton =
+        document.getElementById("botonMusica");
 
-        boton.innerHTML = "🔊";
 
-    } else {
+    if (reproduciendo) {
 
-        musica.pause();
+
+        audio.pause();
+
+
+        boton.innerHTML = "♪";
+
 
         reproduciendo = false;
 
-        boton.innerHTML = "🎵";
-
-    }
-
-}
-
-
-/* =========================
-   CUENTA REGRESIVA
-========================= */
-
-/*
-   CAMBIAR ESTA FECHA
-*/
-
-const fechaEvento = new Date("December 20, 2026 21:00:00").getTime();
-
-
-function actualizarContador() {
-
-    const ahora = new Date().getTime();
-
-    const diferencia = fechaEvento - ahora;
-
-
-    if (diferencia <= 0) {
-
-        document.getElementById("dias").innerHTML = "0";
-
-        document.getElementById("horas").innerHTML = "0";
-
-        document.getElementById("minutos").innerHTML = "0";
-
-        document.getElementById("segundos").innerHTML = "0";
-
-        return;
-
-    }
-
-
-    const dias = Math.floor(
-        diferencia / (1000 * 60 * 60 * 24)
-    );
-
-    const horas = Math.floor(
-        (diferencia / (1000 * 60 * 60)) % 24
-    );
-
-    const minutos = Math.floor(
-        (diferencia / (1000 * 60)) % 60
-    );
-
-    const segundos = Math.floor(
-        (diferencia / 1000) % 60
-    );
-
-
-    document.getElementById("dias").innerHTML = dias;
-
-    document.getElementById("horas").innerHTML = horas;
-
-    document.getElementById("minutos").innerHTML = minutos;
-
-    document.getElementById("segundos").innerHTML = segundos;
-
-}
-
-
-setInterval(actualizarContador, 1000);
-
-actualizarContador();
-
-
-/* =========================
-   CORAZONES
-========================= */
-
-function crearCorazon() {
-
-    const corazon = document.createElement("div");
-
-    corazon.classList.add("corazon");
-
-    corazon.innerHTML = "❤️";
-
-    corazon.style.left =
-        Math.random() * 100 + "vw";
-
-    corazon.style.fontSize =
-        (Math.random() * 15 + 15) + "px";
-
-
-    document.body.appendChild(corazon);
-
-
-    setTimeout(() => {
-
-        corazon.remove();
-
-    }, 6000);
-
-}
-
-
-setInterval(crearCorazon, 1200);
-
-
-/* =========================
-   COMPARTIR
-========================= */
-
-async function compartir() {
-
-    if (navigator.share) {
-
-        await navigator.share({
-
-            title: "Mi invitación",
-
-            text: "Te invito a compartir este momento especial ❤️",
-
-            url: window.location.href
-
-        });
 
     } else {
 
-        alert(
-            "Copiá el enlace de esta página para compartir la invitación."
-        );
+
+        audio.play()
+            .then(function () {
+
+
+                boton.innerHTML = "❚❚";
+
+
+                reproduciendo = true;
+
+
+            })
+            .catch(function () {
+
+
+                alert(
+                    "No se pudo reproducir la música. Verificá que el archivo musica.mp3 esté en la misma carpeta que index.html."
+                );
+
+
+            });
 
     }
+
+}
+
+/* =========================================
+   ABRIR POPUP REGALO
+========================================= */
+
+function abrirRegalo() {
+
+    document
+        .getElementById("popupRegalo")
+        .classList.add("activo");
+
+}
+
+
+
+/* =========================================
+   CERRAR POPUP
+========================================= */
+
+function cerrarRegalo() {
+
+    document
+        .getElementById("popupRegalo")
+        .classList.remove("activo");
 
 }
 
 </script>
 
+<!-- =================================================
+     POPUP REGALOS
+================================================= -->
+
+<div
+    class="popup-regalo"
+    id="popupRegalo">
+
+    <div class="popup-contenido">
+
+        <button
+            class="cerrar-popup"
+            onclick="cerrarRegalo()">
+
+            ×
+
+        </button>
+
+
+        <img
+            class="gif-popup"
+            src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/ffffff-blanco-icono-12.gif"
+            alt="Regalo">
+
+
+        <h3>
+            HACER REGALO
+        </h3>
+
+
+        <div class="dato-bancario">
+
+            <span>
+                ALIAS
+            </span>
+
+            <strong id="alias">
+                MAIA.XV
+            </strong>
+
+
+        </div>
+
+
+        <div class="dato-bancario">
+
+            <span>
+                CBU
+            </span>
+
+            <strong id="cbu">
+                0000000000000000000000
+            </strong>
+
+         
+
+        </div>
+
+
+     
+
+
+    </div>
+
+</div>
 </body>
+
 </html>
