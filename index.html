@@ -109,7 +109,6 @@
 
 }
 
-
 /* =========================================
    CONTENIDO DEL POPUP
 ========================================= */
@@ -118,11 +117,18 @@
 
     position: relative;
 
-    width: 100%;
+    /* Usamos 90vw o 90% para dejar margen en los bordes en celulares */
+    width: 90%;          
 
-    max-width: 600px;
+    /* En celulares achicamos el ancho máximo. En pantallas más grandes no supera los 450px */
+    max-width: 450px;    
 
-    padding: 20px 10px 10px;
+    /* Ajustamos padding para que no ocupe tanto espacio vertical */
+    padding: 20px 15px 15px;
+
+    /* Evita que el popup se salga arriba/abajo en pantallas chicas */
+    max-height: 85vh;    
+    overflow-y: auto;   /* Permite scroll si el contenido es muy largo */
 
     text-align: center;
 
@@ -134,13 +140,9 @@
         #351744
     );
 
-    border: 1px solid rgba(201,149,220,.4);
-
-    border-radius: 15px;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.6);
-
+    /* Opcional: agrega bordes redondeados para un mejor acabado visual */
+    border-radius: 12px; 
+    box-sizing: border-box;
 }
 
 
