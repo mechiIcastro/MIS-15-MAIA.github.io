@@ -32,10 +32,6 @@
 
     <style>
 
-        html, body {
-    max-width: 100vw;
-    overflow-x: hidden;
-}
 
         /* =========================================
    BOTÓN VER MAPA
@@ -113,6 +109,7 @@
 
 }
 
+
 /* =========================================
    CONTENIDO DEL POPUP
 ========================================= */
@@ -144,9 +141,15 @@
         #351744
     );
 
-    /* Opcional: agrega bordes redondeados para un mejor acabado visual */
-    border-radius: 12px; 
-    box-sizing: border-box;
+  
+
+    border: 1px solid rgba(201,149,220,.4);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.6);
+
 }
 
 
@@ -707,7 +710,7 @@
 
             font-family: 'Parisienne', cursive;
 
-            font-size: 15px;
+            font-size: 10px;
 
             line-height: 1.3;
 
@@ -1893,6 +1896,13 @@
 
     <section class="frase">
 
+        <img
+            class="gif-cuando"
+
+            src="iglesia_campana_movimiento_transparente.gif"
+
+            alt="Calendario">
+
         <p>
            Con la alegría y la bendición de ver cumplido un sueño, mis padres,
             Mariana Martinez y Martín Castro desean celebrar mis 15 años.
@@ -1900,8 +1910,8 @@
 
 
         <small>
-            TE ESPERO PARA COMPARTIR JUNTOS
-            ESTA NOCHE TAN ESPECIAL
+            TE ESPERO EN LA IGLESIA BASÍLICA DE SAN FRANCISCO EN GRAL. LA VALLE 325 A LAS 20 HS.
+           PARA LA CELEBRAR LA MISA DE ACCIÓN DE GRACIAS
         </small>
 
     </section>
@@ -2055,8 +2065,11 @@
 
         <div class="dress-texto">
 
+            
             Elegí tu mejor look y vení
             a disfrutar de una noche inolvidable.
+            <br>
+            <strong >Se reserva el color VIOLETA para la quinceañera</strong>
 
         </div>
 
@@ -2158,7 +2171,7 @@
     loop>
 
     <source
-        src="musica/cancion.mp3"
+        src="https://drive.google.com/file/d/1blkb2ijl0u4d7lFneJ-4_6rhLjJqGqw3/view?usp=sharing"
         type="audio/mpeg">
 
 </audio>
@@ -2418,11 +2431,11 @@ function cerrarRegalo() {
         <div class="dato-bancario">
 
             <span>
-                ALIAS
+                ALIAS:
             </span>
 
             <strong id="alias">
-                MAIA.XV
+                maia.castro.760
             </strong>
 
 
@@ -2432,11 +2445,11 @@ function cerrarRegalo() {
         <div class="dato-bancario">
 
             <span>
-                CBU
+                A NOMBRE DE:
             </span>
 
             <strong id="cbu">
-                0000000000000000000000
+                Maia Eunice Isabel Castro
             </strong>
 
          
